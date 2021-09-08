@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReader", "DataReader\DataReader.csproj", "{4D118F66-12E8-41EB-B9DE-57A79EED423F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReaderTests", "DataReaderTests\DataReaderTests.csproj", "{5C66D2D2-97FD-4F76-9223-C50C1057A74F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D118F66-12E8-41EB-B9DE-57A79EED423F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D118F66-12E8-41EB-B9DE-57A79EED423F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D118F66-12E8-41EB-B9DE-57A79EED423F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D118F66-12E8-41EB-B9DE-57A79EED423F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C66D2D2-97FD-4F76-9223-C50C1057A74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C66D2D2-97FD-4F76-9223-C50C1057A74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C66D2D2-97FD-4F76-9223-C50C1057A74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C66D2D2-97FD-4F76-9223-C50C1057A74F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57902090-AF54-4DCB-963A-39DFE7439021}
+	EndGlobalSection
+EndGlobal
