@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Autofac;
+using DataReader.DataAccess;
+using DataReader.Engine;
+using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +14,14 @@ namespace DataReader
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Git Init");
+            NLoggerCommunicator.Info("The application has launched...");
+            var container = ContainerConfig.Configure();
+            using(var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IApplication>();
+                app.Run();
+            }
+            Console.ReadLine();
         }
     }
 }
