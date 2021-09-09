@@ -4,25 +4,34 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataReader.Engine
 {
-    class JsonReader : IJsonReader
+  public class JsonReader : IJsonReader
     {
         IHttpClientCommunicator _httpClientCommunicator;
 
-        public JsonReader(IHttpClientCommunicator httpClientCommunicator)
+        public JsonReader(IHttpClientCommunicator httpClientCommunicator = null)
         {
-            _httpClientCommunicator = httpClientCommunicator;
+            _httpClientCommunicator = httpClientCommunicator ?? new HttpClientCommunicator();
         }
 
-        public async Task ReadJsonAsync()
+        public bool ReadJson()
         {
-         var productContent = await _httpClientCommunicator.GetDataAsync();
-         ProductModel product = JsonConvert.DeserializeObject<ProductModel>(productContent.ToString());
-
+            try
+            {
+                var productContent = _httpClientCommunicator.GetDataAsync().Result;
+                ProductModel product = JsonConvert.DeserializeObject<ProductModel>(productContent.ToString());
+                return true;
+            }
+            catch (HttpRequestException)
+            {
+                return false;
+            }
+       
         }
 
     }

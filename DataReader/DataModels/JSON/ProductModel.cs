@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataReader.DataModels.JSON
 {
-    class ProductModel
+    public class ProductModel
     {
         //// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
         public Data data { get; set; }

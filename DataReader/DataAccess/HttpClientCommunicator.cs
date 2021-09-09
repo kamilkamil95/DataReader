@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataReader.DataAccess
 {
-    class  HttpClientCommunicator : IHttpClientCommunicator
+   public class  HttpClientCommunicator : IHttpClientCommunicator
     {
         static readonly HttpClient client = new HttpClient();
         public async Task<string> GetDataAsync()

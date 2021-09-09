@@ -2,7 +2,7 @@
 
 namespace DataReader.DataAccess
 {
-    interface IHttpClientCommunicator
+   public interface IHttpClientCommunicator
     {
         Task<string> GetDataAsync();
     }

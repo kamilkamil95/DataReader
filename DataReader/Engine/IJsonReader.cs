@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using DataReader.DataModels.JSON;
+using System.Threading.Tasks;
 
 namespace DataReader.Engine
 {
    public  interface IJsonReader
     {
-        Task ReadJsonAsync();
+        bool ReadJson();
     }
 }
