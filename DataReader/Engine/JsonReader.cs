@@ -2,13 +2,8 @@
 using DataReader.DataModels.JSON;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq;
-using DataReader.DataModels.JSON.ProductModel;
 
 namespace DataReader.Engine
 {
@@ -34,24 +29,33 @@ namespace DataReader.Engine
                 }
 
                 var choseProductReadKey = Console.ReadLine();
-                if (Convert.ToInt32(choseProductReadKey) <= products.data.Count)
+                try
                 {
-                    ConsoleLogger.Success($"Your request was on product number {choseProductReadKey}");
-                    var chosenProductData = products.data.FirstOrDefault(x => x.id == Convert.ToInt32(choseProductReadKey));
-                    ConsoleLogger.Info(chosenProductData.id.ToString());
-                    ConsoleLogger.Info(chosenProductData.name);
-                    ConsoleLogger.Info(chosenProductData.year.ToString());
-                    ConsoleLogger.Info(chosenProductData.pantone_value);
-                    Console.ReadLine();
+                    if (Convert.ToInt32(choseProductReadKey) <= products.data.Count)
+                    {
+                        ConsoleLogger.Success($"Your request was on product number {choseProductReadKey}");
+                        var chosenProductData = products.data.FirstOrDefault(x => x.id == Convert.ToInt32(choseProductReadKey));
+                        ConsoleLogger.Info(chosenProductData.id.ToString());
+                        ConsoleLogger.Info(chosenProductData.name);
+                        ConsoleLogger.Info(chosenProductData.year.ToString());
+                        ConsoleLogger.Info(chosenProductData.pantone_value);
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        ConsoleLogger.Warning($"Please choose a number between 0 - {products.data.Count}");
+                        NLoggerCommunicator.Info($"Chosen number was {choseProductReadKey}. Valid range is 0 - {products.data.Count}");
+                        ConsoleLogger.Info("Press to continue....");
+                        Console.ReadLine();
+                        Console.Clear();
+                        ReadJson();
+                    }
                 }
-                else
+                catch (Exception x)
                 {
-                    ConsoleLogger.Warning($"Please choose a number between 0 - {products.data.Count}");
-                    NLoggerCommunicator.Info($"Chosen number was {choseProductReadKey}. Valid range is 0 - {products.data.Count}");
-                    ConsoleLogger.Info("Press to continue....");
-                    Console.ReadLine();
-                    Console.Clear();
-                    ReadJson();
+                    ConsoleLogger.Warning("Please use numbers - more detalils you can find in error logs");
+                    NLoggerCommunicator.Error(x);
+                    Console.ReadLine();   
                 }
                 return true;
             }

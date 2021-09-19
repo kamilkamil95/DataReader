@@ -23,6 +23,10 @@ namespace DataReader
             logger.Error(msg);
         }
 
+        public static void Error(Exception msg)
+        {
+            logger.Error(msg);
+        }
 
     }
 }
