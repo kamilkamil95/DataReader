@@ -16,6 +16,10 @@ namespace DataReader.Engine
             _httpClientCommunicator = httpClientCommunicator ?? new HttpClientCommunicator();
         }
 
+
+
+
+
         public bool ReadJson()
         {
             try
@@ -29,6 +33,7 @@ namespace DataReader.Engine
                 }
 
                 var choseProductReadKey = Console.ReadLine();
+
                 try
                 {
                     if (Convert.ToInt32(choseProductReadKey) <= products.data.Count)
@@ -55,8 +60,10 @@ namespace DataReader.Engine
                 {
                     ConsoleLogger.Warning("Please use numbers - more detalils you can find in error logs");
                     NLoggerCommunicator.Error(x);
-                    Console.ReadLine();   
+                    Console.ReadLine();
+                    return false;
                 }
+
                 return true;
             }
             catch (HttpRequestException)
@@ -65,6 +72,5 @@ namespace DataReader.Engine
             }
 
         }
-
     }
 }

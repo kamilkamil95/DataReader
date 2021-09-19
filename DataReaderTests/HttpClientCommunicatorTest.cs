@@ -13,30 +13,14 @@ namespace DataReaderTests
     {
         private Mock<IHttpClientCommunicator> _httpClientCommunicator;
         private JsonReader _jsonReader;
+        
 
         [SetUp]
         public void Setup()
         {
             _httpClientCommunicator = new Mock<IHttpClientCommunicator>();
             _jsonReader = new JsonReader(_httpClientCommunicator.Object);
-        }
 
-        //json
-        [Test]
-        public void GetDataAsync_HttpClient_ReturnsHttpRequestException()
-        {
-            _httpClientCommunicator.Setup(r => r.GetDataAsync()).Throws<HttpRequestException>();
-            var result = _jsonReader.ReadJson();
-            Assert.That(result, Is.False); ;
-        }
-
-        // jsooooon
-        [Test]
-        public void GetDataAsync_HttpClient_ReturnTrue()
-        {
-            JsonReader jsonReader = new JsonReader();
-            var result = jsonReader.ReadJson();
-            Assert.That(result, Is.True);
         }
 
         [Test]
@@ -47,7 +31,13 @@ namespace DataReaderTests
             Assert.That(result.ToString(),Is.TypeOf<string>());
         }
 
-      
+        [Test]
+        public void GetDataAsync_HttpClient_ReturnsHttpRequestException()
+        {
+          _httpClientCommunicator.Setup(r => r.GetDataAsync()).Throws<HttpRequestException>();
+          Assert.Throws<HttpRequestException>(() => _httpClientCommunicator.Object.GetDataAsync());
+
+        }
 
 
     }
