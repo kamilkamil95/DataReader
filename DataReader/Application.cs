@@ -10,10 +10,13 @@ namespace DataReader
     public class Application : IApplication
     {
         IJsonReader _jsonReader;
+        IXmlReader _xmlReader;
         string userDecision;
-        public Application(IJsonReader jsonReader)
+
+        public Application(IJsonReader jsonReader,IXmlReader xmlReader)
         {
             _jsonReader = jsonReader;
+            _xmlReader = xmlReader;
         }
 
         public void Run()
@@ -24,16 +27,30 @@ namespace DataReader
 
             userDecision = Console.ReadLine();
 
-            if (userDecision.Equals("1"))
-            {
-                _jsonReader.ReadJson();
 
-            }
-            else
+
+
+            switch (userDecision)
             {
-                ConsoleLogger.Warning("Please chose from 1-3.");
-                Run();
+
+                case "1":
+                    _jsonReader.ReadJson();
+                    break;
+
+                case "2":
+
+
+                    break;
+
+                default:
+                    ConsoleLogger.Warning("Please chose from 1-3.");
+                    Run();
+                    break;
             }
+        
+
+
+           
 
 
 

@@ -17,6 +17,7 @@ namespace DataReader
             var builder = new ContainerBuilder();
 
             builder.RegisterType<JsonReader>().As<IJsonReader>();
+            builder.RegisterType<XmlReader>().As<IXmlReader>();
             builder.RegisterType<Application>().As<IApplication>();
             builder.RegisterType<HttpClientCommunicator>().As<IHttpClientCommunicator>();
             return builder.Build();

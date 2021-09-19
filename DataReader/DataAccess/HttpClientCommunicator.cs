@@ -15,7 +15,7 @@ namespace DataReader.DataAccess
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync($"https://reqres.in/api/products/");
+                HttpResponseMessage response = await client.GetAsync(Consts.JsonApiUrl);
                 string content = await response.Content.ReadAsStringAsync();
                 return content;
             }

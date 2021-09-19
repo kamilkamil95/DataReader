@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Consts.cs" />
     <Compile Include="ContainerConfig.cs" />
     <Compile Include="DataAccess\HttpClientCommunicator.cs" />
     <Compile Include="DataAccess\IHttpClientCommunicator.cs" />
@@ -89,9 +90,13 @@
     <Compile Include="DataModels\JSON\ProductModel\ProductData.cs" />
     <Compile Include="DataModels\JSON\ProductModel\ProductModel.cs" />
     <Compile Include="DataModels\JSON\ProductModel\ProductSupport.cs" />
+    <Compile Include="DataModels\XML\CATALOG.cs" />
+    <Compile Include="DataModels\XML\PLANT.cs" />
     <Compile Include="Engine\ConsoleLogger.cs" />
     <Compile Include="Engine\IJsonReader.cs" />
+    <Compile Include="Engine\IXmlReader.cs" />
     <Compile Include="Engine\JsonReader.cs" />
+    <Compile Include="Engine\XmlReader.cs" />
     <Compile Include="IApplication.cs" />
     <Compile Include="NLoggerCommunicator.cs" />
     <Compile Include="Program.cs" />
