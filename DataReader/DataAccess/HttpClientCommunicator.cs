@@ -10,15 +10,16 @@ namespace DataReader.DataAccess
    public class  HttpClientCommunicator : IHttpClientCommunicator
     {
         static readonly HttpClient client = new HttpClient();
+
         public async Task<string> GetDataAsync()
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://reqres.in/api/products/2");
+                HttpResponseMessage response = await client.GetAsync($"https://reqres.in/api/products/");
                 string content = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(content);
                 return content;
             }
+
             catch (HttpRequestException e)
             {
                 Console.WriteLine("\n Exception caught");

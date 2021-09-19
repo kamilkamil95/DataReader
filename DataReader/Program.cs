@@ -17,6 +17,7 @@ namespace DataReader
             NLoggerCommunicator.Info("The application has launched...");
 
             var container = ContainerConfig.Configure();
+
             using(var scope = container.BeginLifetimeScope())
             {
                 var app = scope.Resolve<IApplication>();

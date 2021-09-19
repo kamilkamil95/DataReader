@@ -1,6 +1,6 @@
 ﻿namespace DataReader.DataModels.JSON
 {
-    public class Data
+    public class AllProductsData
     {
         public int id { get; set; }
         public string name { get; set; }

@@ -83,9 +83,12 @@
     <Compile Include="ContainerConfig.cs" />
     <Compile Include="DataAccess\HttpClientCommunicator.cs" />
     <Compile Include="DataAccess\IHttpClientCommunicator.cs" />
-    <Compile Include="DataModels\JSON\Data.cs" />
-    <Compile Include="DataModels\JSON\ProductModel.cs" />
-    <Compile Include="DataModels\JSON\Support.cs" />
+    <Compile Include="DataModels\JSON\AllProductsModel\AllProductsData.cs" />
+    <Compile Include="DataModels\JSON\AllProductsModel\AllProductsModel.cs" />
+    <Compile Include="DataModels\JSON\AllProductsModel\AllProductsSupport.cs" />
+    <Compile Include="DataModels\JSON\ProductModel\ProductData.cs" />
+    <Compile Include="DataModels\JSON\ProductModel\ProductModel.cs" />
+    <Compile Include="DataModels\JSON\ProductModel\ProductSupport.cs" />
     <Compile Include="Engine\ConsoleLogger.cs" />
     <Compile Include="Engine\IJsonReader.cs" />
     <Compile Include="Engine\JsonReader.cs" />

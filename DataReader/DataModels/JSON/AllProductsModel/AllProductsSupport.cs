@@ -1,6 +1,6 @@
 ﻿namespace DataReader.DataModels.JSON
 {
-    public class Support
+    public class AllProductsSupport
     {
         public string url { get; set; }
         public string text { get; set; }
