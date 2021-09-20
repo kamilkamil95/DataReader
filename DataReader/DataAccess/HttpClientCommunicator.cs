@@ -11,11 +11,11 @@ namespace DataReader.DataAccess
     {
         static readonly HttpClient client = new HttpClient();
 
-        public async Task<string> GetDataAsync()
+        public async Task<string> GetDataAsync(string url)
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync(Consts.JsonApiUrl);
+                HttpResponseMessage response = await client.GetAsync(url);
                 string content = await response.Content.ReadAsStringAsync();
                 return content;
             }

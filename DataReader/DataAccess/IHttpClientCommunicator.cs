@@ -4,6 +4,6 @@ namespace DataReader.DataAccess
 {
    public interface IHttpClientCommunicator
     {
-        Task<string> GetDataAsync();
+        Task<string> GetDataAsync(string url);
     }
 }

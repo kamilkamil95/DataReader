@@ -5,6 +5,7 @@ using System.Net.Http;
 using DataReader.Engine;
 using DataReader.DataModels.JSON;
 using System;
+using DataReader;
 
 namespace DataReaderTests
 {
@@ -27,15 +28,15 @@ namespace DataReaderTests
         public void GetDataAsync_ReturnsContent_TypeOfString()
         {
             HttpClientCommunicator httpClientCommunicator = new HttpClientCommunicator();
-            var result = httpClientCommunicator.GetDataAsync();
+            var result = httpClientCommunicator.GetDataAsync(Consts.JsonApiUrl);
             Assert.That(result.ToString(),Is.TypeOf<string>());
         }
 
         [Test]
         public void GetDataAsync_HttpClient_ReturnsHttpRequestException()
         {
-          _httpClientCommunicator.Setup(r => r.GetDataAsync()).Throws<HttpRequestException>();
-          Assert.Throws<HttpRequestException>(() => _httpClientCommunicator.Object.GetDataAsync());
+          _httpClientCommunicator.Setup(r => r.GetDataAsync(Consts.JsonApiUrl)).Throws<HttpRequestException>();
+          Assert.Throws<HttpRequestException>(() => _httpClientCommunicator.Object.GetDataAsync(Consts.JsonApiUrl));
 
         }
 

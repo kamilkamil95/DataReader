@@ -24,12 +24,12 @@ namespace DataReader.Engine
         {
             try
             {
-                var productsContent = _httpClientCommunicator.GetDataAsync().Result;
+                var productsContent = _httpClientCommunicator.GetDataAsync(Consts.JsonApiUrl).Result;
                 AllProductsModel products = JsonConvert.DeserializeObject<AllProductsModel>(productsContent.ToString());
 
                 foreach (var item in products.data)
                 {
-                    Console.WriteLine($"-Type {item.id} to get some more informations about {item.name}.");
+                    Console.WriteLine($"-Type {item.id} to get some more information about {item.name}.");
                 }
 
                 var choseProductReadKey = Console.ReadLine();

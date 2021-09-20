@@ -1,4 +1,5 @@
-﻿using DataReader.DataAccess;
+﻿using DataReader;
+using DataReader.DataAccess;
 using DataReader.Engine;
 using Moq;
 using NUnit.Framework;
@@ -30,7 +31,7 @@ namespace DataReaderTests
         [Test]
         public void JsonReader_ReadJson_ReturnsHttpRequestException()
         {
-            _httpClientCommunicator.Setup(r => r.GetDataAsync()).Throws<HttpRequestException>();
+            _httpClientCommunicator.Setup(r => r.GetDataAsync(Consts.JsonApiUrl)).Throws<HttpRequestException>();
             var result = _jsonReader.ReadJson();
             Assert.That(result, Is.False); ;
         }
