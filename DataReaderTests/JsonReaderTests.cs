@@ -39,7 +39,7 @@ namespace DataReaderTests
         [TestCase("1", true)]
         [TestCase("222222", false)]
         [TestCase("b", false)]
-        public void JsonReader_ReadJson_ValidNumbersReturnsTrue(string inputValue, bool expectedResult)
+        public void JsonReader_ReadJson_ValidNumbersReturnsTrueOrFalse(string inputValue, bool expectedResult)
         {
             var output = new StringWriter();
             Console.SetOut(output);

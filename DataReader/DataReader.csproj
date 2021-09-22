@@ -94,9 +94,9 @@
     <Compile Include="DataModels\XML\PlantModel.cs" />
     <Compile Include="Engine\ConsoleLogger.cs" />
     <Compile Include="Engine\IJsonReader.cs" />
-    <Compile Include="Engine\IXmlReader.cs" />
+    <Compile Include="Engine\IXmlDocumentReader.cs" />
     <Compile Include="Engine\JsonReader.cs" />
-    <Compile Include="Engine\XmlReader.cs" />
+    <Compile Include="Engine\XmlDocumentReader.cs" />
     <Compile Include="IApplication.cs" />
     <Compile Include="NLoggerCommunicator.cs" />
     <Compile Include="Program.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace DataReader.Engine
 {
-   public interface IXmlReader
+   public interface IXmlDocumentReader
     {
         bool ReadXml();
     }

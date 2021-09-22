@@ -11,12 +11,11 @@ using System.IO;
 
 namespace DataReader.Engine
 {
-    class XmlReader : IXmlReader
+    public class XmlDocumentReader : IXmlDocumentReader
     {
-
         IHttpClientCommunicator _httpClientCommunicator;
 
-        public XmlReader(IHttpClientCommunicator httpClientCommunicator = null)
+        public XmlDocumentReader(IHttpClientCommunicator httpClientCommunicator = null)
         {
             _httpClientCommunicator = httpClientCommunicator ?? new HttpClientCommunicator();
         }
@@ -24,40 +23,34 @@ namespace DataReader.Engine
         public bool ReadXml()
         {
             var PlantCatalog = GetDeserializedModel();
-            int decision = 0;
 
             if(PlantCatalog.PLANT.Count != 0)
             {
-                for (int i = 0; i < PlantCatalog.PLANT.Count-1; i++)
+                for (int i = 0; i < PlantCatalog.PLANT.Count; i++)
                 {
                     ConsoleLogger.Info($"- Type {i} to view details about - {PlantCatalog.PLANT[i].COMMON}");
                 }
-                Console.WriteLine($"Please chose a number between 1 - {PlantCatalog.PLANT.Count}");
-
+                Console.WriteLine($"Please chose a number between 1 - {PlantCatalog.PLANT.Count-1}");
                 try
                 {
-                    decision = Convert.ToInt32(Console.ReadLine());
-
+                    var decisionNumber = Convert.ToInt32(Console.ReadLine());
+                        ConsoleLogger.Info("");
+                        ConsoleLogger.Info(PlantCatalog.PLANT[decisionNumber].COMMON);
+                        ConsoleLogger.Info(PlantCatalog.PLANT[decisionNumber].BOTANICAL);
+                        ConsoleLogger.Info(PlantCatalog.PLANT[decisionNumber].AVAILABILITY);
+                        ConsoleLogger.Info(PlantCatalog.PLANT[decisionNumber].PRICE);
                 }
                 catch (Exception ex)
                 {
                     NLoggerCommunicator.Error(ex);
                     ConsoleLogger.Warning("Please Chose mentioned number");
+                    return false;
                 }
-               
-                if(decision <= PlantCatalog.PLANT.Count)
-                {
-                    ConsoleLogger.Info("");
-                    ConsoleLogger.Info(PlantCatalog.PLANT[decision].COMMON);
-                    ConsoleLogger.Info(PlantCatalog.PLANT[decision].BOTANICAL);
-                    ConsoleLogger.Info(PlantCatalog.PLANT[decision].AVAILABILITY);
-                    ConsoleLogger.Info(PlantCatalog.PLANT[decision].PRICE);
-                }
-            }        
+            }
+            ConsoleLogger.Success("Press to continue");
             Console.ReadLine();
             return true;
         }
-
 
         private PlantCatalogModel GetDeserializedModel()
         {
