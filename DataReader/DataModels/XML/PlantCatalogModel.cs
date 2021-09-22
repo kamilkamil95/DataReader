@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace DataReader.DataModels.XML
 {
     [XmlRoot(ElementName = "CATALOG")]
-	public class CATALOG
+	public class PlantCatalogModel
 	{
 		[XmlElement(ElementName = "PLANT")]
-		public List<PLANT> PLANT { get; set; }
+		public List<PlantModel> PLANT { get; set; }
 	}
 
 

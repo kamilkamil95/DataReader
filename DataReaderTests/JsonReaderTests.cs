@@ -36,42 +36,18 @@ namespace DataReaderTests
             Assert.That(result, Is.False); ;
         }
 
-        [Test]
-        public void JsonReader_ReadJson_ValidNumbersReturnsTrue()
+        [TestCase("1", true)]
+        [TestCase("222222", false)]
+        [TestCase("b", false)]
+        public void JsonReader_ReadJson_ValidNumbersReturnsTrue(string inputValue, bool expectedResult)
         {
             var output = new StringWriter();
             Console.SetOut(output);
-            var input = new StringReader("1");
+            var input = new StringReader(inputValue);
             Console.SetIn(input);
             JsonReader jsonReader = new JsonReader();
             var result = jsonReader.ReadJson();
-            Assert.That(result, Is.True);
+            Assert.AreEqual(expectedResult, result);
         }
-
-        [Test]
-        public void JsonReader_ReadJson_NumbersOutOfRangeReturnsFalse()
-        {
-            var output = new StringWriter();
-            Console.SetOut(output);
-            var input = new StringReader("222222");
-            Console.SetIn(input);
-            JsonReader jsonReader = new JsonReader();
-            var result = jsonReader.ReadJson();
-            Assert.That(result, Is.False);
-        }
-
-        [Test]
-        public void JsonReader_ReadJson_NaNReturnsFalse()
-        {
-            var output = new StringWriter();
-            Console.SetOut(output);
-            var input = new StringReader("b");
-            Console.SetIn(input);
-            JsonReader jsonReader = new JsonReader();
-            var result = jsonReader.ReadJson();
-            Assert.That(result, Is.False);
-        }
-
-
     }
 }

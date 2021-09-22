@@ -38,7 +38,7 @@ namespace DataReader
                     break;
 
                 case "2":
-
+                    _xmlReader.ReadXml();
 
                     break;
 

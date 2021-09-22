@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace DataReader.DataModels.XML
 {
     [XmlRoot(ElementName = "PLANT")]
-    public class PLANT
+    public class PlantModel
     {
 		[XmlElement(ElementName = "COMMON")]
 		public string COMMON { get; set; }
