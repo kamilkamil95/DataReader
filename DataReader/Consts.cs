@@ -10,6 +10,7 @@ namespace DataReader
     {
         public static string JsonApiUrl = "https://reqres.in/api/products/";
         public static string XmlApiUrl = "https://www.w3schools.com/xml/plant_catalog.xml";
+        public static string ScraperUrl = "https://unece.org/trade/cefact/unlocode-code-list-country-and-territory";
 
     }
 }
